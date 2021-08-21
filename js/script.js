@@ -58,17 +58,18 @@ function updateCart() {
     let finalTotal = document.getElementById('final-total');
     finalTotal.innerText = macbookTotalPrice;
 
-    document.getElementById('discount-btn').addEventListener('click', function(){
+    document.getElementById('discount-btn').addEventListener('click', function () {
         let discountInput = document.getElementById('discount-input');
-        
-        if(discountInput.value == 'stevekaku'){
-            finalTotal.innerText = macbookTotalPrice - (macbookTotalPrice * 0.2)
+
+        if (discountInput.value == 'stevekaku') {
+            finalTotal.innerText = macbookTotalPrice - (macbookTotalPrice * 0.2);
+
         }
         else {
             finalTotal.innerText = macbookTotalPrice;
         }
     })
-
 }
+
 updateCart();
 
