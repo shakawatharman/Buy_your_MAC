@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- external css link  -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- bootstrap link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
+
 <body>
-    <h1>JS</h1>
+
+    <header class="container">
+
+        <section class="row d-flex">
+            <div class="col-6 image-container">
+                <img class="img-fluid" src="images/mac.png" alt="">
+            </div>
+            <div class="col-6 details-container">
+                <h1>Customize your Blue 24-inch iMac with Apple M1 chip.</h1>
+                <p>Apple M1 chip with 8-core CPU with performance cores and 4 efficiency cores, 7-core GPU, and 16-core
+                    Neural Engine 8GB unified memory 256GB SSD storage Two Thunderbolt/ USB 4 ports Magic Mouse Magic
+                    Keyboard - US English.</p>
+
+                <div class="mb-4">
+                    <h4>Memory</h3>
+                        <div class="">
+                            <button id="memory-8gb" type="button" class="memory-btn btn btn-outline-secondary">8GB
+                                unified memory</button>
+                            <button id="memory-16gb" type="button" class="memory-btn btn btn-outline-secondary">16GB
+                                unified memory</button>
+                        </div>
+                </div>
+                <div class="mb-4">
+                    <h4>Storage</h3>
+                        <button type="button" class="storage-btn btn btn-outline-secondary">256GB SSD storage</button>
+                        <button id="storage-512gb" type="button" class="storage-btn btn btn-outline-secondary">512GB SSD
+                            storage</button>
+                        <button id="storage-1tb" type="button" class="storage-btn btn btn-outline-secondary">1TB SSD
+                            storage</button>
+                </div>
+                <div class="mb-4">
+                    <h4>Choose your delivery option</h3>
+                        <button type="button" class="delivery-btn btn btn-outline-secondary">Friday,Aug 25 Free Prime
+                            Delivery</button>
+                        <button id="quick-delivery" type="button" class="delivery-btn btn btn-outline-secondary">Friday,Aug 18
+                            Delivery Charge $20</button>
+                </div>
+
+                <table class="macbook table table-sm">
+                    <tbody>
+                        <tr>
+                            <th>Best Price</th>
+                            <th>$<span id="best-price">1299</span></th>
+                        </tr>
+                        <tr>
+                            <th>Extra Memory Cost</th>
+                            <th>$<span id="extra-memory">0</span></th>
+                        </tr>
+                        <tr>
+                            <th>Extra Storage Cost</th>
+                            <th>$<span id="extra-storage">0</span></th>
+                        </tr>
+                        <tr>
+                            <th>Delivery Charge</th>
+                            <th>$<span id="delivery-charge">0</span></th>
+                        </tr>
+                        <tr>
+                            <th>Total Price</th>
+                            <th>$<span id="total-price">1299</span></th>
+                        </tr>
+
+                    </tbody>
 
 
+                </table>
+                <h5> Add Promo Code</h6>
+                    <input id="discount-input" type="text"> 
+                    <button id="discount-btn" class="btn btn-danger" type="button">Apply</button>
+
+            </div>
+
+            <hr class="mt-2">
+            <h1 class="text-center">Total: $<span id="final-total">1299</span></h1>
+        </section>
+
+
+
+    </header>
+
+
+
+
+
+
+    <!-- external javascript link  -->
     <script src="js/script.js"></script>
 </body>
+
+
 </html>
