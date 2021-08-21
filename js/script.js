@@ -1,75 +1,72 @@
-let memoryBtn = document.querySelectorAll('.memory-btn');
-let storageBtn = document.querySelectorAll('.storage-btn');
-let deliveryBtn = document.querySelectorAll('.delivery-btn');
+// connecting different HTML elements by using DOM 
 
-let extraMemory = document.getElementById('extra-memory');
-let extraStorage = document.getElementById('extra-storage');
-let deliveryCharge = document.getElementById('delivery-charge');
-let totalPrice = document.getElementById('total-price');
+// declaring variables 
 
-let macbookPrice = 1299;
-let memoryPrice, storagePrice, deliveryPrice, macbookTotalPrice;
+ let ramEvent = document.getElementsByName('ram');
+ let romEvent = document.getElementsByName('rom');
+ let deliveryEvent = document.getElementsByName('delivery');
+ 
+ let extraRamPrice = document.getElementById('extra-memory');
+ let extraRomPrice = document.getElementById('extra-storage');
+ let extraDelPrice = document.getElementById('delivery-charge');
 
-for (let btn of memoryBtn) {
-    btn.addEventListener('click', function (e) {
-        if (e.target.innerText == '8GB unified memory') {
-            memoryPrice = 0;
-        }
-        else {
-            memoryPrice = 180;
-        }
-        extraMemory.innerText = memoryPrice;
-        updateCart();
-    })
-}
-for (let btn of storageBtn) {
-    btn.addEventListener('click', function (e) {
-        if (e.target.innerText == '256GB SSD storage') {
-            storagePrice = 0;
-        } else if (e.target.innerText == '512GB SSD storage') {
-            storagePrice = 100;
-        } else {
-            storagePrice = 180;
-        }
-        extraStorage.innerText = storagePrice;
-        updateCart();
-    })
-}
+ let iMacPrice = document.getElementById('best-price');
+ let totalPrice = document.getElementById('total-price');
+ let finalTotal = document.getElementById('final-total');
+ 
+//  passing parameters in function 
 
-for (let btn of deliveryBtn) {
-    btn.addEventListener('click', function (e) {
-        if (e.target.innerText == 'Friday,Aug 25 Free Prime Delivery') {
-            deliveryPrice = 0;
-        }
-        else {
-            deliveryPrice = 20;
-        }
-        deliveryCharge.innerText = deliveryPrice;
-        updateCart();
-    })
-}
-function updateCart() {
-    memoryExtraPrice = parseInt(extraMemory.innerText);
-    storageExtraPrice = parseInt(extraStorage.innerText);
-    deliveryExtraPrice = parseInt(deliveryCharge.innerText);
-    macbookTotalPrice = macbookPrice + memoryExtraPrice + storageExtraPrice + deliveryExtraPrice;
-    totalPrice.innerText = macbookTotalPrice;
+ imacOption(ramEvent, extraRamPrice);
+ imacOption(romEvent, extraRomPrice);
+ imacOption(deliveryEvent, extraDelPrice);
+ 
+//  declaring a function and using "for of" loop for ensuring the button activities
 
-    let finalTotal = document.getElementById('final-total');
-    finalTotal.innerText = macbookTotalPrice;
+ function imacOption(event, _price) {
+     for (const item of event) {
+         item.addEventListener('click', function(e) {
+             e.preventDefault();
+             let price = e.target.value
+             _price.innerText = price;
+             updateCart();
+ 
+         })
+     }
+ }
 
-    document.getElementById('discount-btn').addEventListener('click', function () {
-        let discountInput = document.getElementById('discount-input');
+ 
 
-        if (discountInput.value == 'stevekaku') {
-            finalTotal.innerText = macbookTotalPrice - (macbookTotalPrice * 0.2);
-
-        }
-        else {
-            finalTotal.innerText = macbookTotalPrice;
-        }
-    })
-}
-
-updateCart();
-
+ updateCart()
+ 
+//  declaring another function for the calculation and will call the function if needed
+ function updateCart() {
+ 
+     let iMacPrice = 1299;
+     let ramPrice = parseInt(extraRamPrice.innerText);
+     let romPrice = parseInt(extraRomPrice.innerText);
+     let delPrice = parseInt(extraDelPrice.innerText);
+ 
+     let iMacPriceTotal = iMacPrice + ramPrice + romPrice + delPrice;
+ 
+     totalPrice.innerText = iMacPriceTotal;
+     finalTotal.innerText = iMacPriceTotal;
+ 
+ 
+     totalAfterDiscount();
+ }
+ 
+//  declaring another new function 
+ 
+ function totalAfterDiscount() {
+     let discountButton = document.getElementById('discount-btn');
+     let discountInput = document.getElementById('discount-input');
+ 
+     discountButton.addEventListener('click', function() {
+         if (discountInput.value == "stevekaku") {
+             finalTotal.innerText = parseInt(finalTotal.innerText) * 0.8;
+             discountInput.value = "";
+         } else {
+             document.getElementById('final-total').innerText = iMacPriceTotal;
+         }
+     })
+ }
