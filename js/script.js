@@ -63,7 +63,7 @@
  
      discountButton.addEventListener('click', function() {
          if (discountInput.value == "stevekaku") {
-             finalTotal.innerText = parseInt(finalTotal.innerText) * 0.8;
+             finalTotal.innerText = parseInt(totalPrice.innerText) * 0.8;
              discountInput.value = "";
          } else {
              document.getElementById('final-total').innerText = iMacPriceTotal;
